@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Home {% endblock title %}
+
+
+{% block content %}
+<style>
+    body {
+        background: #1C2833;
+    }
+
+    .main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80vh;
+        background-image: url("{% static 'images/bg.jpg' %}");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: white;
+    }
+</style>
+
+<main class="main">
+    <div style="margin-left: 100px;">
+        <h2><a style="text-decoration: none;
+            color: inherit;
+            margin-right: 100px;" href="{% url 'player' %}">
+                <span> Go to the Music player <i class='bx bx-fast-forward'></i></span>
+
+            </a></h2>
+        <p style="width: 50%;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe esse autem dolor
+            aperiam
+            voluptates pariatur vero rerum placeat facere praesentium libero illo, laudantium reiciendis.
+            Assumenda, repudiandae in. Asperiores, modi ratione?</p>
+
+    </div>
+</main>
+
+<!-- Featured Section -->
+<section class="bg-light py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                {% if 'search' in request.path %}
+                <h2>Search results for '{{keyword}}'</h2>
+                {% else %}
+                <h2>Featured (All songs)</h2>
+                <p>Discover some of our most popular songs and artists:</p>
+                {% endif %}
+            </div>
+        </div>
+        <div class="row my-5">
+            {% for song in all_songs %}
+            <div class="col-md-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <a href="{% url 'player' %}">
+                    <img style="max-width: 200px; max-height: 200px; width: 200px; height: 200px;"
+                        src="{{song.image.url}}" alt="Featured song" class="img-fluid">
+                    <h4 class="mt-3">{{song.title}}</h4>
+                    <p>{{song.artist}}</p>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<h3 style="color: aliceblue;">Static from here: </h3>
+<div class="container my-5 text-white">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>By Artists</h2>
+            <p>Discover music by your favorite artists:</p>
+        </div>
+    </div>
+    <div class="row my-5">
+        <div class="col-md-3">
+            <img src="https://picsum.photos/id/242/200/200" alt="Artist" class="img-fluid rounded-circle">
+            <h4 class="mt-3">Artist Name</h4>
+            <p>10 songs</p>
+        </div>
+        <div class="col-md-3">
+            <img src="https://picsum.photos/id/243/200/200" alt="Artist" class="img-fluid rounded-circle">
+            <h4 class="mt-3">Artist Name</h4>
+            <p>15 songs</p>
+        </div>
+        <div class="col-md-3">
+            <img src="https://picsum.photos/id/244/200/200" alt="Artist" class="img-fluid rounded-circle">
+            <h4 class="mt-3">Artist Name</h4>
+            <p>8 songs</p>
+        </div>
+        <div class="col-md-3">
+            <img src="https://picsum.photos/id/242/200/200" alt="Artist" class="img-fluid rounded-circle">
+            <h4 class="mt-3">Artist Name</h4>
+            <p>10 songs</p>
+        </div>
+    </div>
+</div>
+
+<!-- By Trending Section -->
+<section class="bg-light py-5">
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>By Trending</h2>
+                <p>Discover the latest music trending now:</p>
+            </div>
+        </div>
+        <div class="row my-5">
+            <div class="col-md-3">
+                <img src="https://picsum.photos/id/250/200/200" alt="Trending song" class="img-fluid">
+                <h4 class="mt-3">Song Title</h4>
+                <p>by Artist Name</p>
+            </div>
+            <div class="col-md-3">
+                <img src="https://picsum.photos/id/247/200/200" alt="Trending song" class="img-fluid">
+                <h4 class="mt-3">Song Title</h4>
+                <p>by Artist Name</p>
+            </div>
+            <div class="col-md-3">
+                <img src="https://picsum.photos/id/248/200/200" alt="Trending song" class="img-fluid">
+                <h4 class="mt-3">Song Title</h4>
+                <p>by Artist Name</p>
+            </div>
+            <div class="col-md-3">
+                <img src="https://picsum.photos/id/249/200/200" alt="Trending song" class="img-fluid">
+                <h4 class="mt-3">Song Title</h4>
+                <p>by Artist Name</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}
