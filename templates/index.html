@@ -55,11 +55,11 @@
         <div class="row my-5">
             {% for song in all_songs %}
             <div class="col-md-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                <a href="{% url 'player' %}">
+                <a style="color: inherit;" href="{% url 'player' %}">
                     <img style="max-width: 200px; max-height: 200px; width: 200px; height: 200px;"
                         src="{{song.image.url}}" alt="Featured song" class="img-fluid">
                     <h4 class="mt-3">{{song.title}}</h4>
-                    <p>{{song.artist}}</p>
+                    <p>{{song.artist}} - <span>{{song.album}}</span></p>
                 </a>
             </div>
             {% endfor %}

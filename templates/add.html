@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Home {% endblock title %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">{% endblock style %}
+
+
+{% block content %}
+
+<div style="height: 100vh; display: flex; justify-content: center; align-items: center;">
+    <form action="{% url 'add' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label class="form-label">Title</label>
+            <input type="text" class="form-control" placeholder="Song Title" name="title" required>
+
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Artist</label>
+            <input type="text" class="form-control" placeholder="Song Artist" name="artist" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Album</label>
+            <input type="text" class="form-control" placeholder="Song Alnum" name="album" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Image</label>
+            <input type="file" class="form-control" accept="image/*" name="image" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Audio File</label>
+            <input class="form-control" type="file" accept=".mp3,audio/*" name="audio_file" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Song</button>
+    </form>
+</div>
+
+
+{% endblock content %}
