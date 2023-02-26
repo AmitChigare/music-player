@@ -1,7 +1,6 @@
 # Music Player
 #### First install the required libraries mentioned in requirements.txt file in the repo
-#### eg: pip install django
-#### eg: pip install Pillow
+#### eg: pip install django, eg: pip install Pillow
 #### After successful installation all the libraries, run the following command in the current folder where manage.py is present
 #### python manage.py runserver
 #### Note that superuser is already created and sql database is already included this project for simplicity
