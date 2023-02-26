@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} About {% endblock title %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">{% endblock style %}
+
+
+{% block content %}
+
+<div style="height: 100vh; display: flex; justify-content: center; align-items: center;flex-direction: column;">
+    <h2>About this Website:</h2>
+    <ul style="max-width: 70%;">
+        <li>First Add or Upload a song</li>
+        <li>Then you can see the song listed in common playlist</li>
+        <li>Here you can Play, Download and Delete the Song</li>
+        <li>The song plays in a loop while in a playlist</li>
+        <li>Homepage consisited of all the songs available in the database</li>
+        <li>After Featured section we can futher improve the applications by trending, by artist, by languages, by
+            recommeded, etc. Form now the requirements is satisfied</li>
+        <li>Coming to Search functionality, Navbar is available is every webpage we can access it anywhere in this
+            website. The search results redirects to the homepage with the search results. </li>
+        <li>Why Django? I used Django instaed of Flask because I have experience building websites and webApps using
+            Django, which in sense gives alot of features as well as security with fast work. Flask is also very good
+            option.</li>
+        <li>UI is kept simple as said</li>
+    </ul>
+    <p>Thank you</p>
+</div>
+
+
+{% endblock content %}
