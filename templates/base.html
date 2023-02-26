@@ -31,17 +31,15 @@
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">All Songs</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
+                        <a class="nav-link" href="contact.html">About</a>
                     </li>
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <form class="d-flex w-50" action="{% url 'search' %}" method="GET">
+                    <input class="form-control me-2" type="search" placeholder="Search for songs, artist or albums"
+                        aria-label="Search" name="keyword">
                     <button class="btn btn-outline-primary" type="submit">Search</button>
                 </form>
-                <ul class="navbar-nav ms-auto align-items-center">
+                <!-- <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
@@ -54,7 +52,7 @@
                             <li><a class="dropdown-item" href="#">Logout</a></li>
                         </ul>
                     </li>
-                </ul>
+                </ul> -->
             </div>
         </div>
     </nav>
